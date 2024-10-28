@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: url(ne.jpg);
+            background-size: cover;
+            backface-visibility: visible;
+        }
+        .payment-form {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-form">
+    <h2 class="text-center">Payment Page</h2>
+    <form id="paymentForm">
+        <div class="form-group">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select class="form-control" id="paymentMethod" required>
+                <option value="" disabled selected>Select a method</option>
+                <option value="card">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="online">Online Payment</option>
+            </select>
+        </div>
+
+        <div id="cardDetails" class="payment-details" style="display:none;">
+            <h4>Card Details</h4>
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                </div>
+            </div>
+        </div>
+
+        <div id="upiDetails" class="payment-details" style="display:none;">
+            <h4>UPI Details</h4>
+            <div class="form-group">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" class="form-control" id="upiId" placeholder="example@upi" required>
+            </div>
+        </div>
+
+        <div id="onlinePaymentDetails" class="payment-details" style="display:none;">
+            <h4>Online Payment Options</h4>
+            <div class="form-group">
+                <label for="onlinePaymentMethod">Select Payment Gateway:</label>
+                <select class="form-control" id="onlinePaymentMethod" required>
+                    <option value="" disabled selected>Select a payment gateway</option>
+                    <option value="googlePay">Google Pay</option>
+                    <option value="phonePe">PhonePe</option>
+                    <option value="paytm">Paytm</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block"><a href="receipt.html" style="color: greenyellow;">pay now</a></button>
+
+    </form>
+</div>
+
+<script>
+    document.getElementById('paymentMethod').addEventListener('change', function() {
+        var cardDetails = document.getElementById('cardDetails');
+        var upiDetails = document.getElementById('upiDetails');
+        var onlinePaymentDetails = document.getElementById('onlinePaymentDetails');
+
+        // Hide all payment details initially
+        cardDetails.style.display = 'none';
+        upiDetails.style.display = 'none';
+        onlinePaymentDetails.style.display = 'none';
+
+        if (this.value === 'card') {
+            cardDetails.style.display = 'block';
+        } else if (this.value === 'upi') {
+            upiDetails.style.display = 'block';
+        } else if (this.value === 'online') {
+            onlinePaymentDetails.style.display = 'block';
+        }
+    });
+
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Add your payment processing logic here
+        alert('Payment processing logic goes here.');
+    });
+</script>

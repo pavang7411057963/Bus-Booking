@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Bus Seats</title>
+    <link rel="stylesheet" href="seat.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Bus Seats</h1>
+        <div class="bus">
+            <div class="row">
+                <div class="seat available" onclick="selectSeat(this)">1A</div>
+                <div class="seat available" onclick="selectSeat(this)">1B</div>
+                <div class="seat booked" onclick="alert('This seat is already booked.')">1C</div>
+                <div class="seat available" onclick="selectSeat(this)">1D</div>
+            </div>
+            <div class="row">
+                <div class="seat available" onclick="selectSeat(this)">2A</div>
+                <div class="seat booked" onclick="alert('This seat is already booked.')">2B</div>
+                <div class="seat available" onclick="selectSeat(this)">2C</div>
+                <div class="seat available" onclick="selectSeat(this)">2D</div>
+            </div>
+            <div class="row">
+                <div class="seat available " onclick="selectSeat(this)">3A</div>
+                <div class="seat available" onclick="selectSeat(this)">3B</div>
+                <div class="seat booked" onclick="alert('This seat is already booked.')">3C</div>
+                <div class="seat available" onclick="selectSeat(this)">3D</div>
+            </div>
+        </div>
+        <center><button onclick="bookSeats()"><a href="payment.html">Book Selected Seats</a></button></center>
+        <div id="message"></div>
+    </div>
+
+    <script src="seat.js"></script>
+</body>
+</html>
